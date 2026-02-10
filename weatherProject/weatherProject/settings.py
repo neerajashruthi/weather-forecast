@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-u$6m*(_r=h9i4s9c0cx7-x1s$gd=3p_b3c-8s9w#0fn6+_=9$w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "weather-forecast-frk4.onrender.com"
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
