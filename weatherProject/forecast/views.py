@@ -19,8 +19,6 @@ from django.conf import settings
 import os
 import pandas as pd
 
-csv_path = os.path.join(settings.BASE_DIR, "weather.csv")
-df = pd.read_csv(csv_path)
 
 
 API_KEY = "f90e26f8696a46f8bb6c699ff056ad91"
@@ -178,7 +176,7 @@ def weather_view(request):
             return render(request, "weather.html", {
                 "error": "City not found"
             })
-        csv_path = os.path.join('C:\\Weather_App\\weather.csv')
+        csv_path = os.path.join(settings.BASE_DIR, "weather.csv")
         historical_data = read_historical_data(csv_path)
         x,y,le = prepare_data(historical_data)
         rain_model = train_rain_model(x,y)
