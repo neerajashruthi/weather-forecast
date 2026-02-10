@@ -28,7 +28,7 @@
                                 placeholder="ex. Chennai"
                                 value="{{ location }}"
                             />
-                            <button class="search-button" onclick="onSearch()" >
+                            <button type="submit" class="search-button">
                                 <div style="width:25px;height:25px;color:white;">
                                     <i class="bi bi-search"></i>
                                 </div>
@@ -46,7 +46,7 @@
                                 placeholder="ex. Chennai"
                                 value="{{ location }}"
                             />
-                            <button class="search-button" onclick="onSearch()" >
+                            <button type="submit" class="search-button">
                                 <div style="width:25px;height:25px;color:white;">
                                     <i class="bi bi-search"></i>
                                 </div>
@@ -89,14 +89,15 @@
                         <h1 class="weather__primary-title">{{ real_description }}</h1>
                         <div id="weather_location" class ="weather__location">
                             
-                            <p class="weather__location-text">
-                                <div style ="width: 15px; height: 15px; color: white;" class="location-icon">
+                            <div class="weather__location-text">
+                                <span style="width:15px; height:15px; color:white;" class="location-icon">
                                     <i class="bi bi-geo-alt"></i>
-                                </div>
-                                <span class="weather__location-city">{{ city }}</span> ,&nbsp 
-                                <span class="weather__location-country">{{ country}}</span> ,&nbsp 
-                                <span class="weather__location-date">{{ time }}</span> 
-                            </p>
+                                </span>
+                                <span class="weather__location-city">{{ city }}</span>,&nbsp;
+                                <span class="weather__location-country">{{ country }}</span>,&nbsp;
+                                <span class="weather__location-date">{{ time }}</span>
+                            </div>
+
                         </div>
                         <p class="weather_primary-stats">
                             
@@ -169,7 +170,7 @@
         </main>
     </div>
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module" src="{% static './js/chartSetup.js' %}"></script>
-    <script type="javascript" src="{% static './js/events.js' %}"></script>
+    <script type="module" src="{% static 'js/chartSetup.js' %}"></script>
+    <script src="{% static 'js/events.js' %}"></script>
 </body>
 </html>
