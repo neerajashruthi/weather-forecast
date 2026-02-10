@@ -15,6 +15,13 @@ from sklearn.metrics import accuracy_score, mean_squared_error
 from django.shortcuts import render
 from datetime import datetime, timedelta
 import pytz
+from django.conf import settings
+import os
+import pandas as pd
+
+csv_path = os.path.join(settings.BASE_DIR, "weather.csv")
+df = pd.read_csv(csv_path)
+
 
 API_KEY = "f90e26f8696a46f8bb6c699ff056ad91"
 BASE_URL = "https://api.openweathermap.org/data/2.5"
