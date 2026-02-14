@@ -14,6 +14,7 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import accuracy_score, mean_squared_error
 from django.shortcuts import render
 from datetime import datetime, timedelta
+from django.conf import settings
 import pytz
 
 API_KEY = "f90e26f8696a46f8bb6c699ff056ad91"
@@ -171,7 +172,7 @@ def weather_view(request):
             return render(request, "weather.html", {
                 "error": "City not found"
             })
-        csv_path = os.path.join('C:\\Weather_App\\weather.csv')
+        csv_path = os.path.join(settings.BASE_DIR, 'weather.csv')
         historical_data = read_historical_data(csv_path)
         x,y,le = prepare_data(historical_data)
         rain_model = train_rain_model(x,y)
