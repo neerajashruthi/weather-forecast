@@ -8,14 +8,18 @@ import requests
 import pandas as pd
 import numpy as np
 import os
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.metrics import accuracy_score, mean_squared_error
 from django.shortcuts import render
 from datetime import datetime, timedelta
 from django.conf import settings
+import joblib
 import pytz
+
+APP_DIR = os.path.join(settings.BASE_DIR, "forecast")
+
+rain_model = joblib.load(os.path.join(APP_DIR, "rain_model.pkl"))
+temp_model = joblib.load(os.path.join(APP_DIR, "temp_model.pkl"))
+hum_model = joblib.load(os.path.join(APP_DIR, "hum_model.pkl"))
+le = joblib.load(os.path.join(APP_DIR, "label_encoder.pkl"))
 
 API_KEY = "f90e26f8696a46f8bb6c699ff056ad91"
 BASE_URL = "https://api.openweathermap.org/data/2.5"
@@ -172,10 +176,6 @@ def weather_view(request):
             return render(request, "weather.html", {
                 "error": "City not found"
             })
-        csv_path = os.path.join(settings.BASE_DIR, 'weather.csv')
-        historical_data = read_historical_data(csv_path)
-        x,y,le = prepare_data(historical_data)
-        rain_model = train_rain_model(x,y)
         wind_deg = current_weather["wind_gust_dir"] % 360
 
         compass_points = [("N", 348.75, 360),("N", 0, 11.25),("NNE", 11.25, 33.75),("NE", 33.75, 56.25),("ENE", 56.25, 78.75),("E", 78.75, 101.25),
@@ -205,10 +205,6 @@ def weather_view(request):
         }
         current_df = pd.DataFrame([current_data])
         rain_prediction = rain_model.predict(current_df)[0]
-        x_temp,y_temp = prepare_regression_data(historical_data,"Temp")
-        x_hum,y_hum = prepare_regression_data(historical_data,"Humidity")
-        temp_model = train_regression_model(x_temp,y_temp)
-        hum_model = train_regression_model(x_hum,y_hum)
         future_temp = predit_future(temp_model,current_weather["temp_min"])
         future_humidity = predit_future(hum_model,current_weather["humidity"])
         timezone = pytz.timezone('Asia/Kolkata')
