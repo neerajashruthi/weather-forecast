@@ -23,6 +23,7 @@ le = joblib.load(os.path.join(APP_DIR, "label_encoder.pkl"))
 
 API_KEY = "f90e26f8696a46f8bb6c699ff056ad91"
 BASE_URL = "https://api.openweathermap.org/data/2.5"
+city=''
 
 def get_current_weather(city):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
