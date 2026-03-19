@@ -173,9 +173,7 @@ def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
         if city =='':
-             return render(request, 'weather.html', {
-            'weather_class': 'clouds',
-            'real_description': 'Search for a city',
+             return render(request, 'weather.html', {            
             'day_stats_flag': 'false'
             })
         else:
