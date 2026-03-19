@@ -10,7 +10,7 @@
     <!--<link rel = "stylesheet" href = "{ '../static/css/styles.css' %}"/> -->
     <title>Weather Forecast</title> 
 </head>
-<body>
+<body onload="init(alert({day_stats_flag }))">
     <div class="page-wrapper">
         <main class="app-container {{ weather_class }}">
             <h1 class="weather_primary-title">{{ real_description }}</h1>
