@@ -225,12 +225,16 @@ def weather_view(request):
 
         if "rain" in raw_description:
             weather_class = "rain"
+            day_stats_flag ='true'
         elif "cloud" in raw_description:
             weather_class = "clouds"
+            day_stats_flag ='true'
         elif "clear" in raw_description:
             weather_class = "clear"
+            day_stats_flag ='true'
         elif "mist" in raw_description or "haze" in raw_description:
             weather_class = "mist"
+            day_stats_flag ='true'
         else:
             weather_class = "clear"
 
@@ -276,7 +280,7 @@ def weather_view(request):
             'pressure_text' :'mb. visibility is ',
             'visibility_text':'. Maximum temperature is ',
             'maxtemp_text':'℃. Minimum temperature is ',
-             'mintemp_text':'℃.', 'day_stats_flag':'true'
+             'mintemp_text':'℃.', 'day_stats_flag':day_stats_flag
         }
         return render(request, 'weather.html', context)
     return render(request, 'weather.html', {
