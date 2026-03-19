@@ -221,7 +221,7 @@ def weather_view(request):
         
         pressure_text = ''
         wind_text=''
-        day_stats_flag ='false'
+        day_stats_flag ='true'
 
         raw_description = current_weather["description"].lower()
 
@@ -236,7 +236,9 @@ def weather_view(request):
         else:
             weather_class = "clear"
 
-            
+        if(city==''){
+            day_stats_flag ='false'
+        }
         
         context = {
             'location': city,
@@ -278,7 +280,7 @@ def weather_view(request):
             'pressure_text' :'mb. visibility is ',
             'visibility_text':'. Maximum temperature is ',
             'maxtemp_text':'℃. Minimum temperature is ',
-            'mintemp_text':'℃.', 'day_stats_flag':'true'
+            'mintemp_text':'℃.', 'day_stats_flag':day_stats_flag
         }
         return render(request, 'weather.html', context)
         return render(request, 'weather.html', {
