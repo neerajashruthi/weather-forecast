@@ -236,9 +236,9 @@ def weather_view(request):
         else:
             weather_class = "clear"
 
-        if(city==''){
+        if(city==''):
             day_stats_flag ='false'
-        }
+        
         
         context = {
             'location': city,
