@@ -172,7 +172,7 @@ def predit_future(model, current_value):
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
-        
+        print('test value : ' ,city)
         current_weather = get_current_weather(city)
         if current_weather is None:
             return render(request, "weather.html", {
@@ -278,7 +278,7 @@ def weather_view(request):
             'pressure_text' :'mb. visibility is ',
             'visibility_text':'. Maximum temperature is ',
             'maxtemp_text':'℃. Minimum temperature is ',
-            'mintemp_text':'℃.', 'day_stats_flag':day_stats_flag
+            'mintemp_text':'℃.', 'day_stats_flag':'true'
         }
         return render(request, 'weather.html', context)
         return render(request, 'weather.html', {
