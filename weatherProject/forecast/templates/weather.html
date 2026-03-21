@@ -19,7 +19,7 @@
                         {% csrf_token %}
                         {% if day_stats_flag %}
                         <div class="search-container">
-                            <div title="{{ day_stats_flag }}" style="width:22px;height:22px;color:white;" class="Weather-icon">
+                            <div style="width:22px;height:22px;color:white;" class="Weather-icon">
                                 <i class="bi bi-cloud-fog"></i>
                             </div>
                             <input
@@ -86,7 +86,7 @@
             </section>
             <section class="main-container">
                      {% if day_stats_flag %}
-                        <h4 id="maintitle" class="default_secondary-title">Weather Forecast : {{ city }} : {{day_stats_flag }}</h4>
+                        <h4 id="maintitle" class="default_secondary-title">Weather Forecast : {{ city }}</h4>
                         <h1 class="weather__primary-title">{{ real_description }}</h1>
                         <div id="weather_location" class ="weather__location">
                             
@@ -160,7 +160,7 @@
                         <canvas id="chart" height="45px"></canvas>
                     {% else %}
 
-                        <h4 id="maintitle" class="homepage-secondary-title">Weather Forecast :{{ city }} : {{ day_stats_flag }}</h4>
+                        <h4 id="maintitle" class="homepage-secondary-title">Weather Forecast :{{ city }}</h4>
                         <h3 id="subtitle" class="homepage-subtitle">Enter the city</h3>
   
                         <br>
