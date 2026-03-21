@@ -221,7 +221,7 @@ def weather_view(request):
         
         pressure_text = ''
         wind_text=''
-        day_stats_flag ='true'
+        day_stats_flag = True
 
         raw_description = current_weather["description"].lower()
 
@@ -237,7 +237,7 @@ def weather_view(request):
             weather_class = "clear"
 
         if city =='':
-            day_stats_flag ='false'
+            day_stats_flag = False
         
         
         context = {
@@ -286,9 +286,9 @@ def weather_view(request):
         return render(request, 'weather.html', {
         'weather_class': 'clouds',
         'real_description': 'Search for a city',
-        'day_stats_flag': 'false'
+        'day_stats_flag': False
         })
     else :return render(request, 'weather.html', {        
-        'day_stats_flag': 'false'
+        'day_stats_flag': False
         })
     
