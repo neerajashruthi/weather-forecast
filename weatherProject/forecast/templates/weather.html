@@ -19,14 +19,14 @@
                         {% csrf_token %}
                         {% if day_stats_flag %}
                         <div class="search-container">
-                            <div style="width:22px;height:22px;color:white;" class="Weather-icon">
+                            <div title="{{ day_stats_flag }}" style="width:22px;height:22px;color:white;" class="Weather-icon">
                                 <i class="bi bi-cloud-fog"></i>
                             </div>
                             <input
                                 type="text"
-                                name="city"
+                                name="city"s
                                 class="geo-input"
-                                placeholder="ex. Chennai ::" {{ day_stats_flag }}
+                                placeholder="ex. Chennai :: {{ day_stats_flag }}" 
                                 value="{{ location }}"
                             />
                             <button type="submit" class="search-button">
