@@ -13,7 +13,7 @@
 <body onload="onloadAlert({day_stats_flag })">
     <div class="page-wrapper">
         <main class="app-container {{ weather_class }}">
-            <h1 class="weather_primary-title">{{ real_description }} :: {{ day_stats_flag }} </h1>
+            <h1 class="weather_primary-title">{{ real_description }} </h1>
             <section class="side-container">
                     <form method="POST">
                         {% csrf_token %}
@@ -26,7 +26,7 @@
                                 type="text"
                                 name="city"
                                 class="geo-input"
-                                placeholder="ex. Chennai :: {{ day_stats_flag }}" 
+                                placeholder="ex. Chennai" 
                                 value="{{ location }}"
                             />
                             <button type="submit" class="search-button">
@@ -160,7 +160,7 @@
                         <canvas id="chart" height="45px"></canvas>
                     {% else %}
 
-                        <h4 id="maintitle" class="homepage-secondary-title">Weather Forecast :{{ city }}</h4>
+                        <h4 id="maintitle" class="homepage-secondary-title">Weather Forecast</h4>
                         <h3 id="subtitle" class="homepage-subtitle">Enter the city</h3>
   
                         <br>
