@@ -13,7 +13,7 @@
 <body onload="onloadAlert({day_stats_flag })">
     <div class="page-wrapper">
         <main class="app-container {{ weather_class }}">
-            <h1 class="weather_primary-title">{{ real_description }}</h1>
+            <h1 class="weather_primary-title">{{ real_description }} :: {{ day_stats_flag }} </h1>
             <section class="side-container">
                     <form method="POST">
                         {% csrf_token %}
