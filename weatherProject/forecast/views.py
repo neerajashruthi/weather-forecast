@@ -163,12 +163,6 @@ def predit_future(model, current_value):
 
 # weather_view()
 
-
-
-
-
-
-
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
