@@ -125,7 +125,7 @@ main.showers {
 }
 
 main.clear {
-    background-image: url('../img/clear.jpeg');
+    background-image: url('../img/x .jpeg');
 }
 
 
@@ -305,7 +305,7 @@ main.clear {
 }
 
 .main-container {
-    background: rgba(0,0,0,0); /* just for slight contrast */
+    background: rgba(0,0,0,0); 
     border-radius: 15px;
     color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,0.7);
