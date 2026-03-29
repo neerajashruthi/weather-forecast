@@ -11,7 +11,7 @@
     <title>Weather Forecast</title> 
     <script>
      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-     alert(tz)
+    // alert(tz)
      const offsetMinutes = new Date().getTimezoneOffset()
      //alert(offsetMinutes)
      //document.getElementById("utcoffset").textContent=tz
@@ -28,14 +28,14 @@
      const utcTimeString4 = document.getElementById('localtime4').getAttribute('data-utc-time4');
      const utcTimeString5 = document.getElementById('localtime5').getAttribute('data-utc-time5');
 
-     alert('utc :' , utcTimeString)
+     //alert('utc :' , utcTimeString)
      const dateObj = new Date(utcTimeString).toLocaleString();;
      const dateObj1 = new Date(utcTimeString1).toLocaleString();;
      const dateObj2 = new Date(utcTimeString2).toLocaleString();;
      const dateObj3 = new Date(utcTimeString3).toLocaleString();;
      const dateObj4 = new Date(utcTimeString4).toLocaleString();;
      const dateObj5 = new Date(utcTimeString5).toLocaleString();;
-    alert('date :', dateObj)
+    //alert('date :', dateObj)
      document.getElementById("localtime").textContent = dateObj
      document.getElementById("localtime1").textContent = dateObj1
      document.getElementById("localtime2").textContent = dateObj2
