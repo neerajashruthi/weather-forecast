@@ -173,10 +173,6 @@
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="{% static 'js/chartSetup.js' %}"></script>
     <script src="{% static 'js/events.js' %}"></script>
-   <script>
-     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-     document.cookie = "user_timezone=" + tz + ";path=/";
-    </script>
-    <input type="hidden" name="next" value="/redirect/?tz={{ TIME_ZONE }}">
+   
 </body>
 </html>

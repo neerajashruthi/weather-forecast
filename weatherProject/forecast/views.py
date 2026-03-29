@@ -164,15 +164,6 @@ def predit_future(model, current_value):
 # weather_view()
 
 def weather_view(request):
-    tzname = request.COOKIES.get("user_timezone")
-    if tzname:
-            try:
-                # Activate the timezone for the current request
-                timezone.activate(zoneinfo.ZoneInfo(tzname))
-            except Exception:
-                timezone.deactivate()
-    else:
-            timezone.deactivate()
     if request.method == 'POST':
         city = request.POST.get('city')
         print('test value : ' ,city)
