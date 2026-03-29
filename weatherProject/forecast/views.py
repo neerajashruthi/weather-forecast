@@ -205,8 +205,8 @@ def weather_view(request):
         rain_prediction = rain_model.predict(current_df)[0]
         future_temp = predit_future(temp_model,current_weather["temp_min"])
         future_humidity = predit_future(hum_model,current_weather["humidity"])
-        print('cliettimezone : ', cliettimezone)
-        print('clienttimezoneoffset : ', clienttimezoneoffset)
+        #print('cliettimezone : ', cliettimezone)
+        #print('clienttimezoneoffset : ', clienttimezoneoffset)
         timezone = pytz.timezone('UTC')
         now = datetime.now(timezone)
         next_hour = now + timedelta(hours=1)
