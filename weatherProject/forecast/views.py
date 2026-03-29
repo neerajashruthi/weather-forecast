@@ -248,8 +248,8 @@ def weather_view(request):
             'country': current_weather['country'],
             
 
-            'time': datetime.now('Asia/Kolkata'),
-            'date': datetime.now('Asia/Kolkata').strftime("%B, %d, %Y"),
+            'time': datetime.now(timezone),
+            'date': datetime.now(timezone).strftime("%B, %d, %Y"),
             'wind': current_weather['WindGustSpeed'],
             'pressure': current_weather['pressure'],
             'visibility': current_weather['Visibility'],
