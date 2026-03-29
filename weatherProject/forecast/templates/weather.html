@@ -9,6 +9,16 @@
      <link rel = "stylesheet" href = "{% static 'css/styles.css' %}"/>
     <!--<link rel = "stylesheet" href = "{ '../static/css/styles.css' %}"/> -->
     <title>Weather Forecast</title> 
+    <script>
+     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+     alert(tz)
+     const offsetMinutes = new Date().getTimezoneOffset()
+     alert(offsetMinutes)
+     document.getElementById("utcoffset").value=tz
+     document.getElementById("offset").value=offsetMinutes
+     
+     document.cookie = "user_timezone=" + tz + ";path=/";
+    </script>
 </head>
 <body onload="onloadAlert({day_stats_flag })">
     <div class="page-wrapper">
@@ -173,14 +183,7 @@
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="{% static 'js/chartSetup.js' %}"></script>
     <script src="{% static 'js/events.js' %}"></script>
-   <script>
-     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-     const offsetMinutes = new Date().getTimezoneOffset()
-     document.getElementById("utcoffset").value=tz
-     document.getElementById("offset").value=offsetMinutes
-     
-     document.cookie = "user_timezone=" + tz + ";path=/";
-    </script>
+   
     <input type="hidden" name="utcoffset" id="utcoffset">
     <input type="hidden" name="offset" id="offset">
 </body>
