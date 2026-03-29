@@ -46,7 +46,7 @@ def get_current_weather(city):
         "WindGustSpeed": data["wind"].get("speed", 0),
         "clouds": data['clouds']['all'],
         "Visibility": data['visibility'],
-    }
+   }
 
 def read_historical_data(filename):
     df = pd.read_csv(filename)
@@ -166,6 +166,8 @@ def predit_future(model, current_value):
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
+        cliettimezone= requests.get('utcoffset'),
+        clienttimezoneoffset =requests.get('offset')
         print('test value : ' ,city)
         current_weather = get_current_weather(city)
         if current_weather is None:
@@ -203,7 +205,7 @@ def weather_view(request):
         rain_prediction = rain_model.predict(current_df)[0]
         future_temp = predit_future(temp_model,current_weather["temp_min"])
         future_humidity = predit_future(hum_model,current_weather["humidity"])
-        timezone = pytz.timezone('UTC')
+        timezone = pytz.timezone(clienttimezoneoffset)
         now = datetime.now(timezone)
         next_hour = now + timedelta(hours=1)
         next_hour = next_hour.replace(minute = 0, second = 0, microsecond = 0)
