@@ -166,8 +166,8 @@ def predit_future(model, current_value):
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
-        cliettimezone= request.get('utcoffset'),
-        clienttimezoneoffset =request.get('offset')
+        cliettimezone = request.POST.get('utcoffset'),
+        clienttimezoneoffset = request.POST.get('offset')
         print('test value : ' ,city)
         current_weather = get_current_weather(city)
         if current_weather is None:
