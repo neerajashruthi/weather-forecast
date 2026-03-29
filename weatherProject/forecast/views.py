@@ -164,6 +164,15 @@ def predit_future(model, current_value):
 # weather_view()
 
 def weather_view(request):
+    tzname = request.COOKIES.get("user_timezone")
+    if tzname:
+            try:
+                # Activate the timezone for the current request
+                timezone.activate(zoneinfo.ZoneInfo(tzname))
+            except Exception:
+                timezone.deactivate()
+    else:
+            timezone.deactivate()
     if request.method == 'POST':
         city = request.POST.get('city')
         print('test value : ' ,city)
@@ -203,7 +212,7 @@ def weather_view(request):
         rain_prediction = rain_model.predict(current_df)[0]
         future_temp = predit_future(temp_model,current_weather["temp_min"])
         future_humidity = predit_future(hum_model,current_weather["humidity"])
-        timezone = pytz.timezone('Asia/Kolkata')
+        timezone = pytz.timezone('UTC')
         now = datetime.now(timezone)
         next_hour = now + timedelta(hours=1)
         next_hour = next_hour.replace(minute = 0, second = 0, microsecond = 0)
@@ -248,8 +257,8 @@ def weather_view(request):
             'country': current_weather['country'],
             
 
-            'time': datetime.now(timezone),
-            'date': datetime.now(timezone).strftime("%B, %d, %Y"),
+            'time': datetime.now(pytz.timezone('UTC')),
+            'date': datetime.now(pytz.timezone('UTC')).strftime("%B, %d, %Y"),
             'wind': current_weather['WindGustSpeed'],
             'pressure': current_weather['pressure'],
             'visibility': current_weather['Visibility'],
