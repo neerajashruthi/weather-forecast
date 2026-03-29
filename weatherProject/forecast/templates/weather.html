@@ -17,6 +17,27 @@
      document.getElementById("utcoffset").textContent=tz
      document.getElementById("offset").textContent=offsetMinutes
      alert(document.getElementById("utcoffset").textContent)
+     
+     const utcTimeString = document.getElementById('localtime').getAttribute('data-utc-time');
+     const utcTimeString1 = document.getElementById('localtime1').getAttribute('data-utc-time1');
+     const utcTimeString2 = document.getElementById('localtime2').getAttribute('data-utc-time2');
+     const utcTimeString3 = document.getElementById('localtime3').getAttribute('data-utc-time3');
+     const utcTimeString4 = document.getElementById('localtime4').getAttribute('data-utc-time4');
+     const utcTimeString5 = document.getElementById('localtime5').getAttribute('data-utc-time5');
+
+     const dateObj = new Date(utcTimeString);
+     const dateObj1 = new Date(utcTimeString1);
+     const dateObj2 = new Date(utcTimeString2);
+     const dateObj3 = new Date(utcTimeString3);
+     const dateObj5 = new Date(utcTimeString4);
+     const dateObj6 = new Date(utcTimeString5);
+
+     document.getElementById("localtime").textContent = dateObj
+     document.getElementById("localtime1").textContent = dateObj1
+     document.getElementById("localtime2").textContent = dateObj2
+     document.getElementById("localtime3").textContent = dateObj3
+     document.getElementById("localtime4").textContent = dateObj4
+     document.getElementById("localtime5").textContent = dateObj5
 
      document.cookie = "user_timezone=" + tz + ";path=/";
     </script>
@@ -107,7 +128,7 @@
                                 </span>
                                 <span class="weather__location-city">{{ city }}</span>,&nbsp;
                                 <span class="weather__location-country">{{ country }}</span>,&nbsp;
-                                <span class="weather__location-date">{{ time }}</span>
+                                <span class="weather__location-date" id="localtime" data-utc-time="{{ time }}" >{{ time }}</span>
                             </div>
 
                         </div>
@@ -123,7 +144,7 @@
                         <br>
                         <ul class="forecast">
                             <li class="forecast-item">
-                                <p class="forecast-time">{{ time1 }}</p>
+                                <p class="forecast-time" id="localtime1" data-utc-time1="{{ time1 }}">{{ time1 }}</p>
                                 <p class="forecast-temperature">
                                     &nbsp;<span class="forecast-temperatureValue">{{ temp1 }}</span>
                                 </p>
@@ -132,7 +153,7 @@
                                 </p>
                             </li>
                             <li class="forecast-item">
-                                <p class="forecast-time">{{ time2 }}</p>
+                                <p class="forecast-time" id="localtime2" data-utc-time2="{{ time2 }}">{{ time2 }}</p>
                                 <p class="forecast-temperature">
                                     &nbsp;<span class="forecast-temperatureValue">{{ temp2 }}</span>
                                 </p>
@@ -141,7 +162,7 @@
                                 </p>
                             </li>
                             <li class="forecast-item">
-                                <p class="forecast-time">{{ time3 }}</p>
+                                <p class="forecast-time" id="localtime3" data-utc-time3="{{ time3 }}">{{ time3 }}</p>
                                 <p class="forecast-temperature">
                                     &nbsp;<span class="forecast-temperatureValue">{{ temp3 }}</span>
                                 </p>
@@ -150,7 +171,7 @@
                                 </p>
                             </li>
                             <li class="forecast-item">
-                                <p class="forecast-time">{{ time4 }}</p>
+                                <p class="forecast-time" id="localtime4" data-utc-time4="{{ time4 }}">{{ time4 }}</p>
                                 <p class="forecast-temperature">
                                     &nbsp;<span class="forecast-temperatureValue">{{ temp4 }}</span>
                                 </p>
@@ -159,7 +180,7 @@
                                 </p>
                             </li>
                             <li class="forecast-item">
-                                <p class="forecast-time">{{ time5 }}</p>
+                                <p class="forecast-time" id="localtime5" data-utc-time5="{{ time5 }}">{{ time5 }}</p>
                                 <p class="forecast-temperature">
                                     &nbsp;<span class="forecast-temperatureValue">{{ temp5 }}</span>
                                 </p>
