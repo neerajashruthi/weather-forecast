@@ -166,7 +166,7 @@ def predit_future(model, current_value):
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
-        cliettimezone = request.POST.get('utcoffset'),
+        clienttimezone = request.POST.get('utcoffset')
         clienttimezoneoffset = request.POST.get('offset')
         print('test value : ' ,city)
         current_weather = get_current_weather(city)
@@ -205,9 +205,9 @@ def weather_view(request):
         rain_prediction = rain_model.predict(current_df)[0]
         future_temp = predit_future(temp_model,current_weather["temp_min"])
         future_humidity = predit_future(hum_model,current_weather["humidity"])
-        print('cliettimezone : ', cliettimezone)
+        print('clienttimezone : ', clienttimezone)
         print('clienttimezoneoffset : ', clienttimezoneoffset)
-        timezone = pytz.timezone('UTC')
+        timezone = pytz.timezone(clienttimezone)
         now = datetime.now(timezone)
         next_hour = now + timedelta(hours=1)
         next_hour = next_hour.replace(minute = 0, second = 0, microsecond = 0)
